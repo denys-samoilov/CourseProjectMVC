@@ -23,6 +23,26 @@ namespace WebApplication5.Controllers
 			return View();
 		}
 
+		public IActionResult Statistics(int months)
+		{
+			switch (months)
+			{
+				case 1:
+					{ ViewBag.Months = $"останній {months} місяць"; break; }
+
+				case 2: 
+				case 3: 
+				case 4:
+					{ ViewBag.Months = $"останні {months} місяці"; break; }
+
+				default:
+					{ ViewBag.Months = $"останні {months} місяців"; break; }
+
+			}
+
+			return View();
+		}
+
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{
